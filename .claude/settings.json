@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"main.tsx: %{http_code}\\\\n\" http://localhost:5173/src/main.tsx)",
+      "Bash(curl -s -o /dev/null -w \"DndProvider: %{http_code}\\\\n\" \"http://localhost:5173/src/features/canvas/DndProvider.tsx\")",
+      "Bash(curl -s -o /dev/null -w \"App: %{http_code}\\\\n\" \"http://localhost:5173/src/app/App.tsx\")"
+    ]
+  }
+}

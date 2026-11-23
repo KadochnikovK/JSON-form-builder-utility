@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  background-color: #f4f4f5;
+  color: #18181b;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* Neutralize vanilla example.css global `input { height: 1.25em }`
+   which also shrinks Material/AntD inputs inside the preview */
+input {
+  height: auto;
+}
+
+/* Form theme applied via CSS vars on .jsf-theme containers (preview) */
+.jsf-theme input,
+.jsf-theme select,
+.jsf-theme textarea {
+  height: auto;
+  min-height: 2.5rem;
+  box-sizing: border-box;
+  accent-color: var(--jfb-accent, #2563eb);
+}
+
+/* Sizing/radius tweaks only for the vanilla set; Material/AntD keep their own */
+.renderer-vanilla input,
+.renderer-vanilla select,
+.renderer-vanilla textarea {
+  font-size: 0.875rem;
+  border-radius: var(--jfb-radius, 6px);
+  padding-block: var(--jfb-input-pad, 0.4375rem);
+  padding-inline: 0.625rem;
+}
+
+.jsf-theme .jsf-label {
+  color: var(--jfb-accent, #2563eb);
+}

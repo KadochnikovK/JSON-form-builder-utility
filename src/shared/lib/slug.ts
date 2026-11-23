@@ -1,0 +1,25 @@
+const CYRILLIC_MAP: Record<string, string> = {
+  а: 'a', б: 'b', в: 'v', г: 'g', д: 'd', е: 'e', ё: 'e', ж: 'zh', з: 'z',
+  и: 'i', й: 'y', к: 'k', л: 'l', м: 'm', н: 'n', о: 'o', п: 'p', р: 'r',
+  с: 's', т: 't', у: 'u', ф: 'f', х: 'h', ц: 'c', ч: 'ch', ш: 'sh', щ: 'sch',
+  ъ: '', ы: 'y', ь: '', э: 'e', ю: 'yu', я: 'ya',
+};
+
+export function slugify(raw: string): string {
+  const transliterated = raw
+    .toLowerCase()
+    .split('')
+    .map((ch) => CYRILLIC_MAP[ch] ?? ch)
+    .join('');
+  const cleaned = transliterated
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  return cleaned || 'field';
+}
+
+export function uniqueName(base: string, taken: Set<string>): string {
+  if (!taken.has(base)) return base;
+  let i = 2;
+  while (taken.has(`${base}-${i}`)) i += 1;
+  return `${base}-${i}`;
+}
